@@ -1,0 +1,11 @@
+<h1>Профиль пользователя <%= @user.full_name %></h1>
+<%= simple_form_for @user, url: 	profile_update_path(@user), html: {method: 'patch'} do |f| %>
+	<%= f.input :first_name, label: 'Имя' %>
+	<%= f.input :last_name %>
+	<%= f.input :email %>
+	<%= f.input :grade_id do %>
+		<%= f.select(:grade_id, Grade.all.collect {|g| [g.name, g.id]}) %>
+	<% end %>
+	<%= f.association :roles, as: :check_boxes %>
+	<%= f.button :submit, 'Сохранить' %>
+<% end %>
