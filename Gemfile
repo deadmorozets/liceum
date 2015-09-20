@@ -27,7 +27,7 @@ end
 
 gem 'rolify'
 
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
 
 gem 'bootstrap-sass'
 

@@ -1,0 +1,24 @@
+<%= simple_form_for @user, url: profile_update_path(@user), html: { method: 'patch', class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: {
+    check_boxes: :horizontal_radio_and_checkboxes,
+    radio_buttons: :horizontal_radio_and_checkboxes,
+    file: :horizontal_file_input,
+    boolean: :horizontal_boolean
+  } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :first_name, placeholer: 'First name' %>
+
+  <%= f.input :last_name, placeholer: 'Last name' %>
+
+  <%= f.input :email, placeholer: 'Email' %>
+
+  <%= f.input :grade_id do %>
+  	<%= f.select(:grade_id, Grade.all.collect {|g| [g.name, g.id]}) %>
+  <% end %>
+
+  <%= f.association :roles, as: :check_boxes %>
+
+	<%= f.button :submit %>
+<% end %>

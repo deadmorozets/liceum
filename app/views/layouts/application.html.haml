@@ -8,6 +8,5 @@
     = csrf_meta_tags
   %body
     = render 'shared/navigation'
-    .container{:id => "main container"}
-      .row
-        = yield
+    %div{ :class => "container master-container" }
+      = yield
