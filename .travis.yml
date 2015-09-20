@@ -1,6 +1,7 @@
 language: ruby
 rvm:
  - "2.1.0"
- - rbx
+before_script:
+  - psql -c "CREATE USER deadmoroz WITH PASSWORD 'deadmoroz';" -U postgres
 script: bundle exec rake db:create db:migrate
 script: bundle exec rspec spec
