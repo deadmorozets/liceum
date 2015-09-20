@@ -1,0 +1,22 @@
+%nav.navbar.navbar-default.navbar-static-top{:role => "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to("Schedule", root_path, class: "navbar-brand")
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to "Disciplines", disciplines_path
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            %p.navbar-text
+              Signed in as #{current_user.full_name}
+          %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Sign In', new_user_session_path
+          %li= link_to 'Sign Up', new_user_registration_path

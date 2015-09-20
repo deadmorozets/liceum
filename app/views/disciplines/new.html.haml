@@ -1,0 +1,8 @@
+.container
+  .row
+    %h3 New Discipline
+    = simple_form_for @discipline, url: disciplines_path(@discipline), |
+      html: { method: 'post'},                                         |
+      wrapper: :bootstrap do |f|                                       |
+      = f.input :name, placeholder: 'Discipline name', autofocus: true
+      = f.button :submit, 'Save'

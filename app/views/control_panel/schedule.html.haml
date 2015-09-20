@@ -1,0 +1,16 @@
+.container
+  .row
+    %h1 Расписание уроков
+    %div
+      - for i in 0..6
+        = current_date = @first_date + i
+        %table
+          - Schedule.all.each do |sch|
+            %tr
+              %td= sch.order
+              = @cur_lesson = @lesson.where("lesson_date == current_date AND schedule_id == sch.id") unless @lesson.nil?
+              - unless @cur_lesson.nil?
+                %td
+                  = @cur_lesson.schedule
+                  урок
+              - else

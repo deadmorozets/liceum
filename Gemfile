@@ -31,6 +31,8 @@ gem 'simple_form'
 
 gem 'bootstrap-sass'
 
+gem 'haml-rails'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
 	gem 'spring'	
