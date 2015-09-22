@@ -19,6 +19,19 @@ class DisciplinesController < ApplicationController
 		end  	
   end
 
+  def edit
+    @discipline = Discipline.find(params[:id])
+  end
+
+  def update
+    @discipline = Discipline.find(params[:id])
+    if @discipline.update(discipline_params)
+      redirect_to disciplines_path
+    else
+      render :edit
+    end
+  end
+
 	private
 
   def require_admin_permission

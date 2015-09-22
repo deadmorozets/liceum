@@ -7,6 +7,6 @@
     - @disciplines.each do |d|
       %tr
         %td= d.id
-        %td= d.name
+        %td= link_to d.name, edit_discipline_path(id: d.id)
 = link_to("Add", new_discipline_path , class: "btn btn-default active")
     
